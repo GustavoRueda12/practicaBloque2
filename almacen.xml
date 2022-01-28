@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<almacen>
+
+<cerveza alias="cruzCampo">
+
+<id>1</id>
+
+<nombre>Cruzcampo</nombre>
+
+<alcohol>2.5</alcohol>
+
+</cerveza>
+
+
+<cerveza alias="estrellaGalicia">
+
+<id>2</id>
+
+<nombre>Estrella Galicia</nombre>
+
+<alcohol>2.1</alcohol>
+
+</cerveza>
+
+
+<cerveza alias="black">
+
+<id>3</id>
+
+<nombre>Black Lager</nombre>
+
+<alcohol>4.5</alcohol>
+
+</cerveza>
+
+</almacen>

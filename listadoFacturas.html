@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado Facturas</title>
+</head>
+<body onload="pintarTablaFacturas();">
+    <div id="TablaFacturas">
+		<h2>Tabla de Facturas</h2>
+		<!-- Insertar aquí la tabla Facturas -->
+	</div>
+
+<script>
+
+function pintarTablaFacturas(){
+
+    let tabla = document.createElement("table");
+    let idFactura = document.createElement("th");
+    let idCliente = document.createElement("th");
+    let numCervezasR = document.createElement("th");
+    let numCervezasN = document.createElement("th");
+    let precioR = document.createElement("th");
+    let precioN = document.createElement("th");
+    let total = document.createElement("th");
+    let fecha = document.createElement("th");
+    let fila = document.createElement("tr");
+    
+    idFactura.textContent = "ID Factura";
+    idCliente.textContent = "ID Cliente";
+    numCervezasR.textContent = "Cervezas Rubias Consumidas";
+    numCervezasN.textContent = "Cervezas Negras Consumidas";
+    precioR.textContent = "Precio cervezas Rubias";
+    precioN.textContent = "Precio cervezas Negras";
+    total.textContent = "Total";
+    fecha.textContent = "Fecha";
+    
+
+    fila.appendChild(idFactura);
+    fila.appendChild(idCliente);
+    fila.appendChild(numCervezasR);
+    fila.appendChild(numCervezasN);
+    fila.appendChild(precioR);
+    fila.appendChild(precioN);
+    fila.appendChild(total);
+    fila.appendChild(fecha);
+
+
+
+    tabla.appendChild(fila);
+    
+    recogerDatos(tabla);
+
+    tabla.setAttribute("border","2px");
+    let resultado = document.querySelector("#TablaFacturas");
+    resultado.appendChild(tabla);
+
+}
+
+function recogerDatos(tabla) {
+
+let lista = JSON.parse(getCookie('factura'));
+for (const fila of lista) {
+    let tr = document.createElement('tr');        
+    let tds = fila.split(',');
+
+    for (const td of tds) {
+        
+        let columna = document.createElement('td');
+        columna.textContent = td;
+        tr.appendChild(columna);
+
+
+    }
+
+    tabla.appendChild(tr);
+
+}
+
+}
+</script>
+<script type="text/javascript" src="js/cookies.js"></script>
+</body>
+
+</html>

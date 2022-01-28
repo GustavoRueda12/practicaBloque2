@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado Cervezas</title>
+</head>
+<body onload="pintarTablaCervezas();">
+    <div id="TablaCervezas">
+		<h2>Tabla de Cervezas</h2>
+		<!-- Insertar aquí la tabla cervezas -->
+	</div>
+
+<script>
+
+function pintarTablaCervezas(){
+
+    let tabla = document.createElement("table");
+    let nombre = document.createElement("th");
+    let id = document.createElement("th");
+    let tipo = document.createElement("th");
+    let gradosAlcohol = document.createElement("th");
+    let fila = document.createElement("tr");
+    
+    id.textContent = "ID";
+    nombre.textContent = "Nombre";
+    tipo.textContent = "Tipo";
+    gradosAlcohol.textContent = "Grados de Alcohol";
+
+    fila.appendChild(id);
+    fila.appendChild(nombre);
+    fila.appendChild(tipo);
+    fila.appendChild(gradosAlcohol);
+
+    tabla.appendChild(fila);
+    
+    recogerDatos(tabla);
+
+    tabla.setAttribute("border","2px");
+    let resultado = document.querySelector("#TablaCervezas");
+    resultado.appendChild(tabla);
+
+}
+
+function recogerDatos(tabla) {
+
+let lista = JSON.parse(getCookie('cerveza'));
+for (const fila of lista) {
+    let tr = document.createElement('tr');        
+    let tds = fila.split(',');
+
+    for (const td of tds) {
+        
+        let columna = document.createElement('td');
+        columna.textContent = td;
+        tr.appendChild(columna);
+
+
+    }
+
+    tabla.appendChild(tr);
+
+}
+
+}
+</script>
+<script type="text/javascript" src="js/cookies.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<!-- Enlaces a bootstrap-->
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+
+	<style type="text/css">
+		body {
+			margin-left: 10px;
+		}
+
+	 
+    	form {
+            display: none;
+        }
+ 
+		#formularios {
+			margin-top: 60px;
+		}
+	</style>
+	<title>Cervecería UNBUCHITO</title>
+</head>
+
+<body onload="datosIniciales()">
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Cervecería UNBUCHITO</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="#" id="mnuAltaCliente">Alta de cliente</a>
+				</li>
+				<li>
+					<a href="#" id="mnuModificaCliente">Modificar cliente</a>
+				</li>
+				<li>
+					<a href="#" id="mnuAltaFactura">Alta de Factura</a>
+				</li>
+				<li>
+					<a href="#" id="listadoFacturas">Listado de Facturas</a>
+				</li>
+				<li>
+					<a href="#" id="mnuAltaCerveza">Alta de cerveza</a>
+				</li>
+				<li>
+					<a href="#" id="mnuListadoCervezas">Listado de Cervezas</a>
+				</li>
+				<li>
+					<a href="#" id="mnuListadoClientes">Listado de Clientes</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container" id="formularios">
+		<div class="row">
+			<form class="form-horizontal" name="frmAltaCliente" id="frmAltaCliente">
+				<fieldset>
+					<!-- Form Name -->
+					<legend>Alta de cliente</legend>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtIdCliente">IdCliente</label>
+						<div class="col-xs-4">
+							<input id="txtIdCliente" name="txtIdCliente" placeholder="IdCliente"
+								class="form-control input-md" type="text">
+						</div>
+					</div>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtNombreCliente">Nombre cliente</label>
+						<div class="col-xs-4">
+							<input id="txtNombreCliente" name="txtNombreCliente"
+								placeholder="Nombre del cliente" class="form-control input-md" type="text">
+
+						</div>
+					</div>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtNumeroDeTelefono">Número de teléfono</label>
+						<div class="col-xs-4">
+							<input id="txtNumeroDeTelefono" name="txtNumeroDeTelefono" placeholder="Número de teléfono" class="form-control input-md"
+								type="text">
+						</div>
+					</div>
+					<!-- Multiple Radios -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="rbtTipoCliente">Tipo cliente</label>
+						<div class="col-xs-4">
+							<div class="radio">
+								<input name="rbtTipoCliente" id="rbtTipoCliente-V" value="vip" checked="checked"
+									type="radio">
+								<label for="rbtTipoCliente-V">VIP</label>
+							</div>
+							<div class="radio">
+								<input name="rbtTipoCliente" id="rbtTipoCliente-N" value="normal" type="radio">
+								<label for="rbtTipoCliente-N">Normal</label>
+							</div>
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group" id="mostrarInputID">
+						<label class="col-xs-4 control-label" for="txtDni">DNI</label>
+						<div class="col-xs-4">
+							<input id="txtDni" name="txtDni" placeholder="DNI cliente normal"
+								class="form-control input-md" type="text">
+						</div>
+					</div>
+					<!-- Text input-->
+					<div class="form-group" id="mostrarInputCorreo">
+						<label class="col-xs-4 control-label" for="txtCorreo">Correo electrónico</label>
+						<div class="col-xs-4">
+							<input id="txtCorreo" name="txtCorreo" placeholder="Correo electrónico cliente VIP" class="form-control input-md"
+								type="text">
+						</div>
+					</div>
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="btnAceptarAltaCliente"></label>
+						<div class="col-xs-4">
+							<input type="button" id="btnAceptarAltaCliente" name="btnAceptarAltaCliente"
+								class="btn btn-primary" value="Aceptar" />
+						</div>
+					</div>
+				</fieldset>
+			</form>
+
+			<form class="form-horizontal" name="frmModificaCliente" id="frmModificaCliente">
+				<fieldset>
+					<!-- Form Name -->
+					<legend>Modificar cliente</legend>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtModificarIdCliente">IdCliente</label>
+						<div class="col-xs-4">
+							<select id="lstClientes" name="lstClientes" class="form-control">
+								
+							</select>
+						</div>
+					</div>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtModificarNombreCliente">Nombre cliente</label>
+						<div class="col-xs-4">
+							<input id="txtModificarNombreCliente" name="txtModificarNombreCliente"
+								placeholder="Nombre del cliente" class="form-control input-md" type="text">
+
+						</div>
+					</div>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtModificarNumeroDeTelefono">Número de teléfono</label>
+						<div class="col-xs-4">
+							<input id="txtModificarNumeroDeTelefono" name="txtModificarNumeroDeTelefono" placeholder="Número de teléfono" class="form-control input-md"
+								type="text">
+						</div>
+					</div>
+					<!-- Multiple Radios -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="rbtMofificarTipoCliente">Tipo cliente</label>
+						<div class="col-xs-4">
+							<div class="radio">
+								<input name="rbtMofificarTipoCliente" id="rbtMofificarTipoCliente-V" value="vip" checked="checked"
+									type="radio">
+								<label for="rbtMofificarTipoCliente-V">VIP</label>
+							</div>
+							<div class="radio">
+								<input name="rbtMofificarTipoCliente" id="rbtMofificarTipoCliente-N" value="normal" type="radio">
+								<label for="rbtMofificarTipoCliente-N">Normal</label>
+							</div>
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group" id="mostrarModificarDNI">
+						<label class="col-xs-4 control-label" for="txtDni">DNI</label>
+						<div class="col-xs-4">
+							<input id="txtModificaDni" name="txtDni" placeholder="DNI cliente normal"
+								class="form-control input-md" type="text">
+						</div>
+					</div>
+					<!-- Text input-->
+					<div class="form-group" id="mostrarModificarCorreo">
+						<label class="col-xs-4 control-label" for="txtModificarCorreo">Correo electrónico</label>
+						<div class="col-xs-4">
+							<input id="txtModificarCorreo" name="txtModificarCorreo" placeholder="Correo electrónico cliente VIP" class="form-control input-md"
+								type="text">
+						</div>
+					</div>
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="btnAceptarModificaCliente"></label>
+						<div class="col-xs-4">
+							<input type="button" id="btnAceptarModificaCliente" name="btnAceptarModificaCliente"
+								class="btn btn-primary" value="Aceptar" />
+						</div>
+					</div>
+				</fieldset>
+			</form>
+
+			<form class="form-horizontal" name="frmListadoFacturas" id="frmListadoFacturas">
+				<fieldset>
+
+					<!-- Form Name -->
+					<legend>Listado de Facturas</legend>
+
+					<!-- Date input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtFechaInicio">Fecha de inicio</label>
+						<div class="col-xs-4">
+							<input id="txtFechaInicio" name="txtFechaInicio" placeholder="Fecha inicio"
+								class="form-control input-md" type="date">
+
+						</div>
+					</div>
+
+					<!-- Date input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtFechaFin">Fecha de fin</label>
+						<div class="col-xs-4">
+							<input id="txtFechaFin" name="txtFechaFin" placeholder="Fecha fin"
+								class="form-control input-md" type="date">
+
+						</div>
+					</div>
+
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="btnAceptarListadoFacturas"></label>
+						<div class="col-xs-4">
+							<input type="button" id="btnAceptarListadoFacturas" name="btnAceptarListadoFacturas" class="btn btn-primary" value="Aceptar" />
+						</div>
+					</div>
+
+				</fieldset>
+			</form>
+
+			<form class="form-horizontal" name="frmFacturaCliente" id="frmFacturaCliente">
+				<fieldset>
+
+					<!-- Form Name -->
+					<legend>Alta de Factura</legend>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtIdFactura">IdFactura</label>
+						<div class="col-xs-4">
+							<input id="txtIdFactura" name="txtIdFactura" placeholder="IdFactura"
+								class="form-control input-md" type="text">
+						</div>
+					</div>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtIdFacturaCliente">IdCliente</label>
+						<div class="col-xs-4">
+							<input id="txtIdFacturaCliente" name="txtIdFacturaCliente" placeholder="IdCliente"
+								class="form-control input-md" type="text">
+						</div>
+					</div>
+					<!-- Multiple Checkboxes -->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="tiposDeCerveza">Tipos de cerveza</label>
+						<div class="col-md-4">
+						<div class="checkbox" id="checkbox">
+						<label for="tiposDeCerveza-R">
+							<input type="checkbox" name="tiposDeCerveza" id="tiposDeCerveza-R" value="rubia">
+							Rubia
+						</label>
+						</div>
+						<div class="checkbox">
+						<label for="tiposDeCerveza-N">
+							<input type="checkbox" name="tiposDeCerveza" id="tiposDeCerveza-N" value="negra">
+							Negra
+						</label>
+						</div>
+						</div>
+					</div>
+					<!-- Text input-->
+					<div class="form-group" id="numeroCervezasRubias">
+						<label class="col-xs-4 control-label" for="txtNumCervezasRubias">Número de cervezas rubias consumidas</label>
+						<div class="col-xs-4">
+							<input id="txtNumCervezasRubias" name="txtNumCervezasRubias"
+								placeholder="Número de cervezas rubias consumidas" class="form-control input-md" type="text">
+
+						</div>
+					</div>
+					<!-- Text input-->
+					<div class="form-group" id="numeroCervezasNegras">
+						<label class="col-xs-4 control-label" for="txtNumCervezasNegras">Número de cervezas negras consumidas</label>
+						<div class="col-xs-4">
+							<input id="txtNumCervezasNegras" name="txtNumCervezasNegras"
+								placeholder="Número de cervezas negras consumidas" class="form-control input-md" type="text">
+
+						</div>
+					</div>
+
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="btnAceptarFactura"></label>
+						<div class="col-xs-4">
+							<input type="button" id="btnAceptarFactura" name="btnAceptarFactura"
+								class="btn btn-primary" value="Aceptar" />
+						</div>
+					</div>
+
+				</fieldset>
+			</form>
+
+			<form class="form-horizontal" name="frmAltaCerveza" id="frmAltaCerveza">
+				<fieldset>
+					<!-- Form Name -->
+					<legend>Alta de cervezas</legend>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtIdCerveza">IdCerveza</label>
+						<div class="col-xs-4">
+							<input id="txtIdCerveza" name="txtIdCerveza" placeholder="IdCerveza"
+								class="form-control input-md" type="text">
+						</div>
+					</div>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtNombreCerveza">Nombre cerveza</label>
+						<div class="col-xs-4">
+							<input id="txtNombreCerveza" name="txtNombreCerveza"
+								placeholder="Nombre de la cerveza" class="form-control input-md" type="text">
+
+						</div>
+					</div>
+					<!-- Multiple Radios -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="rbtTipoCerveza">Tipo cerveza</label>
+						<div class="col-xs-4">
+							<div class="radio">
+								<input name="rbtTipoCerveza" id="rbtTipoCerveza-R" value="rubia" checked="checked"
+									type="radio">
+								<label for="rbtTipoCerveza-R">Rubia</label>
+							</div>
+							<div class="radio">
+								<input name="rbtTipoCerveza" id="rbtTipoCerveza-N" value="negra" type="radio">
+								<label for="rbtTipoCerveza-N">Negra</label>
+							</div>
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtGradosDeAlcohol">Grados de alcohol</label>
+						<div class="col-xs-4">
+							<input id="txtGradosDeAlcohol" name="txtGradosDeAlcohol" placeholder="Grados de alcohol" class="form-control input-md"
+								type="text">
+						</div>
+					</div>
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="btnAceptarAltaCerveza"></label>
+						<div class="col-xs-4">
+							<input type="button" id="btnAceptarAltaCerveza" name="btnAceptarAltaCerveza"
+								class="btn btn-primary" value="Aceptar" />
+						</div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/objetos.js"></script>
+	<script type="text/javascript" src="js/codigo.js"></script>
+	<script type="text/javascript" src="js/cookies.js"></script>
+</body>
+
+</html>
